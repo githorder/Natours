@@ -1,0 +1,51 @@
+/* HEADER STYLING */
+.header {
+    height: 95vh;
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-primary-dark, 0.7), 
+        rgba($color-primary, 0.7)),
+        url('../imgs/hero-small.jpg');
+
+    background-size: cover;
+    background-position: top;
+    position: relative;
+
+    @media (min-resolution: 192dpi) and (min-width: 37.5em),
+           (min-width: 112.5em) {
+            background-image: linear-gradient(
+                to right bottom, 
+                rgba($color-primary-dark, 0.7), 
+                rgba($color-primary, 0.7)),
+                url('../imgs/hero.jpg');
+    }
+
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    @include respond(phone) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+    }
+
+    
+    /* STYLING THE MAIN BOX INSIDE HEADER */
+    &__main-text {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        backface-visibility: hidden;
+    }
+
+    &__logo-box {
+        position: absolute;
+        top: 3rem;
+        left: 3rem;
+
+        .header__logo {
+            height: 4.5rem;
+        }
+    }
+}

@@ -1,0 +1,39 @@
+/* BASE DEFINITIONS */
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+    color: inherit;
+    font-weight: inherit;
+}
+
+html {
+    font-size: 62.5%; // definition of 1rem = 10px
+
+    
+    @include respond(tab-land) { // width <= 1200?
+        font-size: 45%; // 
+    }
+    
+    @include respond(tab-port) { // width <= 900
+        font-size: 50%; // 8px
+    }
+
+    @include respond(big-desktop) { // is width >= 1800?
+        font-size: 75%; // 12px
+    }
+}
+
+body {
+    padding: 2rem;
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
+
+    color: $color-secondary;
+
+    box-sizing: border-box;
+}

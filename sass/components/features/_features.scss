@@ -1,0 +1,26 @@
+.feature-box {
+    background-color: rgba($color-secondary-text, 0.8);
+    padding: 4rem 2.2rem;
+    color: $color-primary-text;
+    border-radius: .3rem;
+    text-align: center;
+    font-size: 1.5rem;
+    box-shadow: 0 1rem 10rem $color-shadow;
+    transition: transform .2s;
+
+    &__icon {
+        font-size: 6rem;
+        display: inline-block;
+        margin-bottom: 2rem;
+        color: rgba($color-primary, 0.9);
+        backface-visibility: hidden;
+    }
+
+    &__text {
+        backface-visibility: hidden;        
+    }
+
+    &:hover {
+        transform: scale(1.01) translateY(-.5rem);
+    }
+}

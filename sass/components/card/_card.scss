@@ -1,0 +1,218 @@
+.card {
+    // CARD FUNCTIONALITY
+    height: 50rem;
+    perspective: 150rem;
+    position: relative;
+    
+    &__side {
+        border-radius: .5rem;
+        box-shadow: 0 1.5rem 2rem $color-shadow;
+        transition: all .8s;
+        height: 50rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden;
+        overflow: hidden;
+    }
+    
+    &__side--front {
+        background-color: $color-secondary-text;
+    }
+    
+    &__side--back {
+        transform: rotateY(180deg);
+        
+        &--1 {
+            background-image: linear-gradient(
+            to right bottom,
+            $color-tertiary--1,
+            $color-tertiary--2);
+        }
+
+        &--2 {
+            background-image: linear-gradient(
+            to right bottom,
+            $color-primary,
+            $color-primary-dark);
+        }
+
+        &--3 {
+            background-image: linear-gradient(
+            to right bottom,
+            $color-tertiary--3,
+            $color-tertiary--4);
+        }
+    }
+
+    &:hover &__side--front {
+        transform: rotateY(-180deg);
+    }
+
+    &:hover &__side--back {
+        transform: rotate(0);
+    }
+
+    // FRONT-SIDE STYLING
+    &__picture {
+        background-blend-mode: screen;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        background-size: cover;
+        height: 23rem;
+        
+        &--1 {
+            background-image: linear-gradient(
+                to right bottom,
+                $color-tertiary--1,
+                $color-tertiary--2),
+                url(../imgs/nat-5.jpg);
+        }
+
+        &--2 {
+            background-image: linear-gradient(
+                to right bottom,
+                $color-primary,
+                $color-primary-dark),
+                url(../imgs/nat-6.jpg);
+        }
+
+        &--3 {
+            background-image: linear-gradient(
+                to right bottom,
+                $color-tertiary--3,
+                $color-tertiary--4),
+                url(../imgs/nat-7.jpg);
+        }
+    }
+
+    &__heading {
+        text-transform: uppercase;
+        color: $color-secondary-text;
+        font-weight: 400;
+        font-size: 2.5rem;
+        position: absolute;
+        top: 13rem;
+        right: 2rem;
+        text-align: right;
+        width: 65%;
+    }
+    
+    &__span {
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        padding: 0.8rem 1.5rem;
+        
+        &--1 {
+            background-image: linear-gradient(
+                to right bottom,
+                rgba($color-tertiary--1, 0.8),
+                rgba($color-tertiary--2, 0.8));
+        }
+
+        &--2 {
+            background-image: linear-gradient(
+                to right bottom,
+                rgba($color-primary, 0.8),       
+                rgba($color-primary-dark, 0.8));
+        }
+
+        &--3 {
+            background-image: linear-gradient(
+                to right bottom,
+                rgba($color-tertiary--3, 0.8),
+                rgba($color-tertiary--4, 0.8));
+        }
+    }
+
+    &__details {
+
+        ul {
+            list-style: none;
+            margin: 1rem auto;
+            width: 75%;
+
+            li {
+                text-align: center;
+                padding: 1rem;
+                
+                &:not(:last-child) {
+                    border-bottom: 1px solid $color-grey-light;
+                }
+            }
+        }
+    }
+
+    // FRONT-SIDE STYLING
+    &__cta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+    }
+
+    &__price-box {
+        margin-bottom: 4rem;
+        color: $color-secondary-text;
+    }
+
+    &__price-only {
+        text-transform: uppercase;
+        font-size: 1rem;
+    }
+
+    &__price-value {
+        font-size: 6rem;
+        font-weight: 400;
+    }
+
+
+    @include respond(tab-port) {
+        height: auto;
+        box-shadow: 0 1.5rem 2rem $color-shadow;
+        background-color: $color-secondary-text;
+        
+        &__side {
+            height: auto;
+            position: relative;
+        }
+
+        &__side--front {
+            box-shadow: none;
+        }
+
+        &__side--back {
+            transform: rotateY(0deg);
+
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        &:hover &__side--front {
+            transform: rotateY(0deg);
+        }
+
+        &__cta {
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: translate(0);
+            width: 100%;
+            padding: 4rem 0;
+        }
+
+        &__price-box {
+            margin-bottom: 2rem;
+        }
+
+        &__price-only {
+            font-size: 1rem;
+        }
+
+        &__price-value {
+            font-size: 4rem;
+        }
+    }
+}
